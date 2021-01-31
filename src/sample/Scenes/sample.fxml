@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #343434;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegController">
+   <children>
+      <Label layoutX="128.0" layoutY="31.0" text="Sing In" textFill="WHITE">
+         <font>
+            <Font name="Montserrat Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="408.0" layoutY="31.0" text="Log In" textFill="WHITE">
+         <font>
+            <Font name="Montserrat Bold" size="25.0" />
+         </font>
+      </Label>
+      <TextField fx:id="login_reg" focusTraversable="false" layoutX="59.0" layoutY="95.0" promptText="Login" styleClass="text-input" stylesheets="@../Styles/style.css" AnchorPane.bottomAnchor="265.0" AnchorPane.leftAnchor="59.0">
+         <font>
+            <Font name="Montserrat Regular" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="email_reg" focusTraversable="false" layoutX="59.0" layoutY="160.0" promptText="Email" styleClass="text-input" stylesheets="@../Styles/style.css" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="59.0">
+         <font>
+            <Font name="Montserrat Regular" size="14.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="pass_reg" focusTraversable="false" layoutX="59.0" layoutY="225.0" promptText="Password" styleClass="text-input" stylesheets="@../Styles/style.css" AnchorPane.bottomAnchor="135.0" AnchorPane.leftAnchor="59.0">
+         <font>
+            <Font name="Montserrat Regular" size="14.0" />
+         </font>
+      </PasswordField>
+      <CheckBox fx:id="confidentials" focusTraversable="false" layoutX="59.0" layoutY="284.0" mnemonicParsing="false" selected="true" textFill="WHITE" underline="true">
+         <font>
+            <Font name="Montserrat Bold" size="13.0" />
+         </font>
+         <graphic>
+            <Hyperlink focusTraversable="false" styleClass="link" stylesheets="@../Styles/style.css" text="Accept" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="Montserrat Bold" size="13.0" />
+               </font>
+            </Hyperlink>
+         </graphic>
+      </CheckBox>
+      <Button fx:id="btn_reg" layoutX="110.0" layoutY="328.0" mnemonicParsing="false" stylesheets="@../Styles/style.css" text="Registration" textFill="WHITE" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="363.5" AnchorPane.topAnchor="328.0">
+         <font>
+            <Font name="Montserrat Regular" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <TextField fx:id="login_auth" focusTraversable="false" layoutX="335.0" layoutY="95.0" promptText="Login" styleClass="text-input" stylesheets="@../Styles/style.css">
+         <font>
+            <Font name="Montserrat Regular" size="14.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="pass_auth" focusTraversable="false" layoutX="335.0" layoutY="160.0" promptText="Password" styleClass="text-input" stylesheets="@../Styles/style.css">
+         <font>
+            <Font name="Montserrat Regular" size="14.0" />
+         </font>
+      </PasswordField>
+      <Button fx:id="btn_auth" layoutX="386.0" layoutY="328.0" mnemonicParsing="false" stylesheets="@../Styles/style.css" text="Log in " textFill="WHITE">
+         <font>
+            <Font name="Montserrat Regular" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+</AnchorPane>
