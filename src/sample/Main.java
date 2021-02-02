@@ -6,11 +6,30 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("Scenes/sample.fxml"));
+        String scene = "sample.fxml";
+        File file = new File("user.settings");
+        boolean exists = file.exists();
+        if(exists){
+            FileInputStream fis = new FileInputStream("user.settings");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            User user = (User) ois.readObject();
+            if(!user.getLogin().equals(""))
+            scene = "main.fxml";
+
+            ois.close();
+        } else {
+
+        }
+
+        Parent root = FXMLLoader.load(getClass().getResource("Scenes/" + scene));
         primaryStage.setTitle("Registration");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();

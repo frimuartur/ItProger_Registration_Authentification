@@ -1,5 +1,9 @@
 package sample.Controller;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.math.BigInteger;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -9,11 +13,17 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import sample.DB;
+import sample.User;
 
 public class RegController {
 
@@ -80,11 +90,10 @@ public class RegController {
                     pass_reg.setText("");
                     btn_reg.setText("Finish");
                 } else
+                    btn_reg.setStyle("-fx-background-color: red");
                     btn_reg.setText("Insert an other login");
-            } catch (SQLException throwables) {
+            } catch (SQLException | ClassNotFoundException throwables) {
                 throwables.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
             }
         });
 
@@ -105,15 +114,26 @@ public class RegController {
             try {
                 boolean isAuth = db.authUser(login_auth.getCharacters().toString(),  password);
                 if (isAuth) {
-                    login_auth.setText("");
-                    pass_auth.setText("");
-                    btn_auth.setText("Log In");
+                    FileOutputStream fos = new FileOutputStream("user.settings");    // DESCHIDEM FILE-UL user.settings
+                    ObjectOutputStream oos = new ObjectOutputStream(fos);                  // In clasa ObjectOutputStream folosim metoda .writeObject
+
+                    oos.writeObject(new User(login_auth.getCharacters().toString()));       // .writeObject  !!!!                          !!!!!!! SERIALIZARE !!!!
+
+                    oos.close();                                                            // Inchidem file-ul
+
+                    login_auth.setText("");                                                 // Declaram ca initial campurile sunt goale
+                    pass_auth.setText("");                                                   // Declaram ca initial campurile sunt goale
+                    btn_auth.setText("Log In");                                              // Declaram ca initial campurile sunt este Log In
+
+                    Parent root = FXMLLoader.load(getClass().getResource("/sample/Scenes/main.fxml"));
+                    Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    primaryStage.setTitle("Registration");
+                    primaryStage.setScene(new Scene(root, 600, 400));
+                    primaryStage.show();
                 } else
                     btn_auth.setText("Don't exist");
-            } catch (SQLException throwables) {
+            } catch (SQLException | ClassNotFoundException | IOException throwables) {
                 throwables.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
             }
         });
     }

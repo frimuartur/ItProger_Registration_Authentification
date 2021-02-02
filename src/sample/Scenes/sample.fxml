@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #343434;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #343434;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.RegController">
    <children>
       <Label layoutX="128.0" layoutY="31.0" text="Sing In" textFill="WHITE">
          <font>
@@ -22,7 +22,7 @@
             <Font name="Montserrat Bold" size="25.0" />
          </font>
       </Label>
-      <TextField fx:id="login_reg" focusTraversable="false" layoutX="59.0" layoutY="95.0" promptText="Login" styleClass="text-input" stylesheets="@../Styles/style.css" AnchorPane.bottomAnchor="265.0" AnchorPane.leftAnchor="59.0">
+      <TextField fx:id="login_reg" focusTraversable="false" layoutX="59.0" layoutY="95.0" prefHeight="40.0" prefWidth="229.0" promptText="Login" styleClass="text-input" stylesheets="@../Styles/style.css" AnchorPane.bottomAnchor="265.0" AnchorPane.leftAnchor="59.0">
          <font>
             <Font name="Montserrat Regular" size="14.0" />
          </font>

@@ -44,14 +44,13 @@ public class DB {
         prStSelect.setString(1, login);
         System.out.println(prStSelect.toString());
         ResultSet res = prStSelect.executeQuery();
-        if(res.next())
+        if (res.next())
             return false;
 
         PreparedStatement prSt = getdbconnection().prepareStatement(sql);
         prSt.setString(1, login);
         prSt.setString(2, email);
         prSt.setString(3, password);
-
 
 
         //statement.executeUpdate("INSERT INTO Customers " + "VALUES (1002, 'McBeal', 'Ms.', 'Boston', 2004)");
@@ -61,16 +60,20 @@ public class DB {
         return true;
     }
 
-        public boolean authUser(String login, String password) throws SQLException, ClassNotFoundException {
+    public boolean authUser(String login, String password) throws SQLException, ClassNotFoundException {
         Statement statement = getdbconnection().createStatement();
-            String select = "SELECT * FROM users.users WHERE login = '" + login + "' AND password = '"+ password +"' Limit 1";
-            ResultSet res = statement.executeQuery(select);
-            return res.next();
+        String select = "SELECT * FROM users.users WHERE login = '" + login + "' AND password = '" + password + "' Limit 1";
+        ResultSet res = statement.executeQuery(select);
+        return res.next();
 
-        }
+    }
 
-
-
+    public ResultSet getArticles() throws SQLException, ClassNotFoundException {
+            String sql = "SELECT * FROM users.articles";
+            Statement statement = getdbconnection().createStatement();
+            ResultSet res = statement.executeQuery(sql);
+            return res;
+    }
 }
 
 
