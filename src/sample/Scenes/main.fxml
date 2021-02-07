@@ -28,6 +28,14 @@
             <VBox fx:id="paneVBox" prefHeight="305.0" prefWidth="598.0" style="-fx-background-color: #343434;" styleClass="scroll-pane" stylesheets="@../Styles/style.css" />
          </content>
       </ScrollPane>
+      <Button fx:id="btn_add_article" layoutX="35.0" layoutY="28.0" mnemonicParsing="false" stylesheets="@../Styles/style.css" text="Add new" textFill="WHITE">
+         <font>
+            <Font name="Montserrat Regular" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
     </children>
     <cursor>
         <Cursor fx:constant="DEFAULT" />

@@ -25,8 +25,6 @@ public class Main extends Application {
             scene = "main.fxml";
 
             ois.close();
-        } else {
-
         }
 
         Parent root = FXMLLoader.load(getClass().getResource("Scenes/" + scene));

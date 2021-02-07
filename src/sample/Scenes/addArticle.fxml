@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #343434;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.AddArticleController">
+    <children>
+        <Label layoutX="154.0" layoutY="14.0" text="Adauga un nou articol" textFill="WHITE">
+            <font>
+                <Font name="Montserrat Bold" size="25.0" />
+            </font>
+        </Label>
+        <TextField fx:id="title_field" focusTraversable="false" layoutX="14.0" layoutY="60.0" prefHeight="40.0" prefWidth="569.0" promptText="Denumirea articolului" styleClass="text-input" stylesheets="@../Styles/style.css">
+            <font>
+                <Font name="Montserrat Regular" size="14.0" />
+            </font>
+        </TextField>
+        <Button fx:id="btn_add" layoutX="256.0" layoutY="317.0" mnemonicParsing="false" stylesheets="@../Styles/style.css" text="Adauga" textFill="WHITE">
+            <font>
+                <Font name="Montserrat Regular" size="14.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+      <TextArea fx:id="intro_field" focusTraversable="false" layoutX="14.0" layoutY="111.0" prefHeight="184.0" prefWidth="186.0" promptText="Introducerea articolului" stylesheets="@../Styles/textArea.css">
+         <font>
+            <Font name="Montserrat Regular" size="14.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="text_field" focusTraversable="false" layoutX="228.0" layoutY="111.0" prefHeight="184.0" prefWidth="358.0" promptText="Textul articolului" stylesheets="@../Styles/textArea.css">
+         <font>
+            <Font name="Montserrat Regular" size="14.0" />
+         </font>
+      </TextArea>
+    </children>
+    <cursor>
+        <Cursor fx:constant="DEFAULT" />
+    </cursor>
+</AnchorPane>

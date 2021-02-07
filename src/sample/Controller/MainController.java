@@ -23,12 +23,13 @@ import java.sql.SQLException;
 public class MainController {
 
     @FXML
-    private Button btn_exit;
+    private Button btn_exit, btn_add_article;
 
     @FXML
     private VBox paneVBox;
 
     private DB db = new DB();
+
 
     @FXML
     void initialize() throws IOException, SQLException, ClassNotFoundException {
@@ -36,7 +37,7 @@ public class MainController {
 
         res = db.getArticles();
 
-        while (res.next()){
+        while (res.next()) {
             Node node = null;
             node = FXMLLoader.load(getClass().getResource("/sample/Scenes/article.fxml"));
 
@@ -48,11 +49,11 @@ public class MainController {
 
             final Node nodeSet = node;
 
-            node.setOnMouseEntered(event-> {
+            node.setOnMouseEntered(event -> {
                 nodeSet.setStyle("-fx-background-color: #707173");
             });
 
-            node.setOnMouseExited(event-> {
+            node.setOnMouseExited(event -> {
                 nodeSet.setStyle("-fx-background-color: #343434");
             });
 
@@ -76,7 +77,6 @@ public class MainController {
             }
 
 
-
             Parent root = null;
             try {
                 root = FXMLLoader.load(getClass().getResource("/sample/Scenes/sample.fxml"));
@@ -89,6 +89,19 @@ public class MainController {
                 e.printStackTrace();
             }
 
+        });
+        btn_add_article.setOnAction(event -> {
+            Parent root = null;
+            try {
+                root = FXMLLoader.load(getClass().getResource("/sample/Scenes/addArticle.fxml"));
+                Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                primaryStage.setTitle("Registration");
+                primaryStage.setScene(new Scene(root, 600, 400));
+                primaryStage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
     }
 }
